@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youtube</title>
+    <link rel="stylesheet" href="play-video.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <img src="./Assets/Burger-menu.svg" />
+        <img src="./Assets/YT-Logo.svg" />
+      </div>
+      <div class="nav-mid">
+        <input type="text" placeholder="Search" id="search-input" />
+        <button id="search-button">
+          <img width="20px" height="20px" src="./Assets/search.svg" />
+        </button>
+        <div class="mid">
+          <img id="mic" src="./Assets/mic.svg" />
+        </div>
+      </div>
+      <div class="nav-right">
+        <img src="./Assets/Profile.svg" />
+      </div>
+    </nav>
+    <div class="videoPlayer">
+      <section id="innerVideo" class="innerVideo">
+        <div id="videoPlaceholder"></div>
+        <div id="videoname" class="videoName">
+          <div id="video"></div>
+        </div>
+        <span class="border"><hr /></span>
+        <div id="creator"></div>
+        <span class="border"><hr /></span>
+        <div id="commentsContainer" class="commentsContainer">
+          <div class="no-of-comments">
+            <p>286 Comments</p>
+            <img src="./Assets/sort.svg" /><span>SORT BY</span>
+          </div>
+          <div class="logo-comment">
+            <img
+              class="logoCommentImg"
+              src="https://images.unsplash.com/photo-1545231027-637d2f6210f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80"
+            />
+            <input type="text" placeholder="Add a public comment..." />
+          </div>
+          <div class="comment"></div>
+        </div>
+      </section>
+      <section id="suggested" class="suggestedVideos">
+        <div class="rightButtons">
+          <button>All</button>
+          <button>From </button>
+        </div>
+        <div id="moreVideos" class="moreVideos">
+          <!-- <div class="moreImg">
+            <img
+              src="https://images.unsplash.com/photo-1553835973-dec43bfddbeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bG9nb3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+            />
+          </div>
+          <div class="vidTitle">
+            <span class="suggesttitle">Ep 6: Living to Serve | SEARCH ON</span>
+            <p>James Gouse</p>
+            <p>1M views . 3 years ago</p>
+          </div> -->
+        </div>
+      </section>
+    </div>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="play-video.js"></script>
+  </body>
+</html>

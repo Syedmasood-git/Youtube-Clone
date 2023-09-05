@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+body {
+  background-color: #000;
+}
+.navbar {
+  background-color: #212121;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border-bottom: 1px solid #303030; */
+  position: fixed;
+  top: 0;
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  margin-inline: 30px;
+  gap: 25px;
+}
+.nav-mid {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  /* border: 2px solid red; */
+}
+#search-input {
+  width: 80%;
+  height: 40px;
+  border-radius: 2px 0px 0px 2px;
+  background: #121212;
+  border: none;
+  font-size: 16px;
+  padding: 5px 10px;
+}
+#search-input:focus {
+  outline: none;
+}
+#search-button {
+  width: 19%;
+  height: 40px;
+  background-color: #303030;
+  border: none;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.mid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: black;
+  cursor: pointer;
+}
+#videoPlaceholder {
+  margin-top: 90px;
+  /* margin-left: 18% ; */
+  height: 60vh;
+}
+.videoPlayer {
+  margin-left: 10%;
+  /* width: 55%; */
+  display: flex;
+}
+h3{
+    margin: 10px 0px;
+}
+#video>p{
+    margin-top: 10px;
+}
+.innerVideo {
+  width: 70%;
+}
+.viewsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.likeShare > img {
+  margin-right: 10px;
+}
+.likeShare > span {
+  padding-right: 20px;
+}
+.border > hr {
+  height: 1px;
+  margin-top: 15px;
+  border: 1px solid #303030;
+}
+.creatorDetails {
+  display: flex;
+  margin-top: 10px;
+}
+.subscribers {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.details {
+  margin-left: 7%;
+}
+.creatorLogo > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.subscribeButton > button {
+  padding: 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 2px;
+  background: #c00;
+}
+.subscribers {
+  margin-bottom: 20px;
+}
+.commentsContainer {
+  margin-top: 20px;
+}
+.no-of-comments {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+.logo-comment {
+  display: flex;
+  gap: 20px;
+}
+.logoCommentImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.logo-comment > input {
+  border: none;
+  background-color: transparent;
+  width: 70%;
+  padding: 10px;
+  font-size: 16px;
+}
+.logo-comment > input:focus {
+  outline: none;
+}
+.comment {
+  display: flex;
+  margin-top: 20px;
+}
+.commentLogo{
+    display: flex;
+    margin: 20px 10px;
+}
+.commentLogo > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.comment-name {
+  display: flex;
+  padding-inline: 5px;
+  gap: 10px;
+}
+.comment-name > p {
+  font-size: 14px;
+}
+.comment-name > span {
+  color: #aaa;
+  font-size: 12px;
+}
+.commentText {
+  padding: 5px;
+  font-size: 16px;
+  font-weight: 400;
+}
+.commentLikes {
+  display: flex;
+  gap: 15px;
+  padding: 5px;
+}
+.suggestedVideos {
+  width: 30%;
+  margin-top: 70px;
+  padding: 10px;
+}
+.rightButtons > button {
+  padding: 10px;
+  width: fit-content;
+  gap: 10px;
+  border-radius: 32px;
+  background: #fff;
+  color: black;
+  text-align: center;
+}
+.moreImg>img{
+    width: 200px;
+    height: 130px;
+}
+.card{
+    display: flex;
+    /* flex-direction: column; */
+    padding: 10px;
+    gap: 10px;
+    cursor: pointer;
+}
+.vidTitle{
+    padding: 0px 10px ;
+    /* max-height: 100px; */
+}
+.vidTitle>div{
+    max-height: 75px;
+    overflow: hidden;
+}
+.vidTitle>p{
+    color: #AAA;
+font-size: 12px;
+font-weight: 400;
+}
+#creator{
+    display: flex;
+    flex-direction: column;
+}
