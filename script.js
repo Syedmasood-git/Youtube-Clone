@@ -1,4 +1,4 @@
-const apiKey="AIzaSyD68pQFwWQvcMq6EJ6ykYrJnbFyY35mSgc";
+const apiKey="AIzaSyC2_Eo5RtiAHKmflW8ZuzPxX0OQMS3Nbg0";
 const baseUrl="https://www.googleapis.com/youtube/v3";
 
 const searchInput=document.getElementById("search-input");
@@ -33,10 +33,8 @@ async function getVideoStatistics(videoId) {
     try {
       const response = await fetch(endpoint);
       const result = await response.json();
-      // console.log(result);
-      // getViews(result.items[0].statistics)
-      // getViews(result)
-      return result.items[0].statistics; 
+      console.log(result.items);
+      return result.items; 
     } catch (error) {
       alert("Failed to fetch Statistics for ", videoId);
     }
@@ -53,11 +51,11 @@ function getViews(views) {
   }
 }
 function navigateTovideoDetails(videoId){
-  document.cookie=`id=${videoId}; path=/play-video.html`;
+  document.cookie=`id=${videoId.statistics[0].id}; path=/play-video.html`;
   window.location.href="http://127.0.0.1:5500/play-video.html"
 }
 function renderVideosOntoUI(videosList){
-  // console.log(videosList);
+  console.log(videosList);
     videosList.forEach((video)=>{
         const videoContainer=document.createElement('div');
         videoContainer.className='video';
@@ -74,14 +72,14 @@ function renderVideosOntoUI(videosList){
             </p>
             </div>
             <p class="gray-text">${video.snippet.channelTitle}</p>
-            <p class="gray-text">${getViews(video.statistics.viewCount)} views . ${calculateTheTimeGap(video.snippet.publishedAt)}</p>
+            <p class="gray-text">${getViews(video.statistics[0].statistics.viewCount)} views . ${calculateTheTimeGap(video.snippet.publishedAt)}</p>
           </div>
         </div>`
         container.appendChild(videoContainer)
-        // console.log(video);
+        console.log(video);
       videoContainer.addEventListener('click',()=>{
-        // console.log(video.id);
-        navigateTovideoDetails(video.id);
+        // console.log(video);
+        navigateTovideoDetails(video);
       })
     })
 }
@@ -101,23 +99,26 @@ async function fetchChannelLogo(channelId){
 async function fetchSearchResults(searchString){
     //Searches the given string
     container.innerHTML=''
-    // const endpoint=`${baseUrl}/search?key=${apiKey}&q=${searchString}&part=snippet&maxResults=5`
-    const endpoint=`${baseUrl}/videos?key=${apiKey}&chart=mostPopular&part=snippet&maxResults=20`
+    const endpoint=`${baseUrl}/search?key=${apiKey}&q=${searchString}&part=snippet&maxResults=20`
+    // const endpoint=`${baseUrl}/videos?key=${apiKey}&chart=mostPopular&part=snippet&maxResults=20`
     try{
         const response=await fetch(endpoint);
         const result=await response.json();
         // console.log(result);
         for(let i=0;i<result.items.length;i++){
-          let currentVideoId=result.items[i].id;
+          let currentVideoId=result.items[i].id.videoId;
           let channelId=result.items[i].snippet.channelId;
           const currentVideoStatistics=await getVideoStatistics(currentVideoId);
           const channelLogo=await fetchChannelLogo(channelId)
           result.items[i].statistics=currentVideoStatistics;
           result.items[i].channelLogo=channelLogo;
         //   // console.log(result.items[i].statistics.viewCount);
-        //   // console.log(result);
-        }
+        console.log(result.items);
+      }
+      
+      console.log(result.items);
         renderVideosOntoUI(result.items);
+        
     }
     catch(error){
         alert("some error occured");
@@ -160,11 +161,41 @@ async function fetchSearchResults(searchString){
     }
 }
  */
+async function fetchResults(){
+  //Searches the given string
+  container.innerHTML=''
+  // const endpoint=`${baseUrl}/search?key=${apiKey}&q=${searchString}&part=snippet&maxResults=5`
+  const endpoint=`${baseUrl}/videos?key=${apiKey}&chart=mostPopular&part=snippet&maxResults=20`
+  try{
+      const response=await fetch(endpoint);
+      const result=await response.json();
+      // console.log(result);
+      for(let i=0;i<result.items.length;i++){
+        let currentVideoId=result.items[i].id;
+        let channelId=result.items[i].snippet.channelId;
+        const currentVideoStatistics=await getVideoStatistics(currentVideoId);
+        const channelLogo=await fetchChannelLogo(channelId)
+        result.items[i].statistics=currentVideoStatistics;
+        result.items[i].channelLogo=channelLogo;
+      //   // console.log(result.items[i].statistics.viewCount);
+    }
+    // console.log(result.items);
+      renderVideosOntoUI(result.items);
+  }
+  catch(error){
+      alert("some error occured");
+  }
+}
+
+
+
+
+
 searchButton.addEventListener("click",()=>{
     const searchValue=searchInput.value;
     fetchSearchResults(searchValue);
     // homePage(searchValue);
 })
 // homePage("");
-fetchSearchResults("");
+fetchResults("");
 // getVideoStatistics("K_dIbWJMNO4");

@@ -232,3 +232,32 @@ font-weight: 400;
     display: flex;
     flex-direction: column;
 }
+
+
+@media screen and (max-width: 800px) {
+  .suggestedVideos{
+    display: none;
+  }
+  .innerVideo{
+    width: 100%;
+  }
+  #videoPlaceholder{
+    height: 40vh;
+  }
+  .videoPlayer{
+    margin-left: 5%;
+    margin-right: 5%;
+  }.commentLogo{
+    margin: 0;
+  }
+  .nav-right{
+    display: none;
+  }
+  .navbar{
+    justify-content: space-evenly;
+  }
+  #search-input{
+    width: 100%;
+    
+  }
+}

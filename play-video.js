@@ -1,12 +1,15 @@
-const apiKey="AIzaSyD68pQFwWQvcMq6EJ6ykYrJnbFyY35mSgc";
+const apiKey="AIzaSyC2_Eo5RtiAHKmflW8ZuzPxX0OQMS3Nbg0";
 const baseUrl="https://www.googleapis.com/youtube/v3";
 const commentsContainer=document.getElementById("commentsContainer")
 const videoname=document.getElementById("video")
 const addCreator=document.getElementById("creator")
 const right=document.getElementById("moreVideos")
+const searchInput=document.getElementById("search-input");
+const searchButton=document.getElementById("search-button")
 
 window.addEventListener('load',()=>{
-    let videoId=document.cookie.split("=")[1];
+  let videoId=document.cookie.split("=")[1];
+  console.log(videoId);
 
     if(YT){
         new YT.Player("videoPlaceholder",{
@@ -24,7 +27,7 @@ async function loadComments(videoId){
 
     const response=await fetch(endpoint);
     const result=await response.json();
-    // console.log(result.items)
+    console.log(result)
     // let videoid=result.items[0].id;
     // console.log(videoid);
     // await videoDetails(videoid);
@@ -246,8 +249,8 @@ function renderVideosOntoUI(videosList){
           </div>`
           right.appendChild(suggested)
           // console.log(video);
-        suggested.addEventListener('click',()=>{
-          // console.log(video.id);
+          console.log(videoID);
+        right.addEventListener('click',()=>{
           navigateTovideoDetails(videoID.id);
         })
       })
@@ -256,4 +259,26 @@ function renderVideosOntoUI(videosList){
     document.cookie=`id=${videoId}; path=/play-video.html`;
     window.location.href="http://127.0.0.1:5500/play-video.html"
   }
-  fetchSearchResults("");
+
+  searchButton.addEventListener("click",()=>{
+    const searchValue=searchInput.value;
+    fetchSearchResults(searchValue);
+    // homePage(searchValue);
+})
+// homePage("");
+// getVideoStatistics("K_dIbWJMNO4");
+async function fetchResults(){
+  //Searches the given string
+  right.innerHTML=''
+  // const endpoint=`${baseUrl}/search?key=${apiKey}&q=${searchString}&part=snippet&maxResults=5`
+  const endpoint=`${baseUrl}/videos?key=${apiKey}&chart=mostPopular&part=snippet,statistics&maxResults=20`
+  try{    
+      const response=await fetch(endpoint);
+      const result=await response.json();
+      renderVideosOntoUI(result.items);
+  }
+  catch(error){
+      alert("some error occured");
+  }
+}
+fetchResults()
