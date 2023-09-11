@@ -99,7 +99,8 @@ h3{
   border: 1px solid #303030;
 }
 .creatorDetails {
-  display: flex;
+  display: block;
+  /* flex-direction: column; */
   margin-top: 10px;
 }
 .subscribers {
@@ -176,6 +177,12 @@ h3{
 .comment-name > p {
   font-size: 14px;
 }
+.name{
+  display: block;
+}
+.one{
+  display: flex;
+}
 .comment-name > span {
   color: #aaa;
   font-size: 12px;
@@ -228,10 +235,10 @@ h3{
 font-size: 12px;
 font-weight: 400;
 }
-#creator{
-    display: flex;
-    flex-direction: column;
-}
+/* #creator{ */
+    /* display: flex; */
+    /* flex-direction: column; */
+/* } */
 
 
 @media screen and (max-width: 800px) {

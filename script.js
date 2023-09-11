@@ -67,7 +67,7 @@ function renderVideosOntoUI(videosList){
           </div>
           <div class="title-container">
           <div class=titleover>
-            <p class="title">
+            <p class="title" onclick=subs()>
               ${video.snippet.title}
             </p>
             </div>
@@ -165,7 +165,7 @@ async function fetchResults(){
   //Searches the given string
   container.innerHTML=''
   // const endpoint=`${baseUrl}/search?key=${apiKey}&q=${searchString}&part=snippet&maxResults=5`
-  const endpoint=`${baseUrl}/videos?key=${apiKey}&chart=mostPopular&part=snippet&maxResults=20`
+  const endpoint=`${baseUrl}/videos?key=${apiKey}&chart=mostPopular&part=snippet&maxResults=20&regionCode=IN`
   try{
       const response=await fetch(endpoint);
       const result=await response.json();
