@@ -50,10 +50,12 @@ function getViews(views) {
     return views.toString();
   }
 }
-function navigateTovideoDetails(videoId){
-  document.cookie=`id=${videoId.statistics[0].id}; path=/play-video.html`;
-  window.location.href= `${window.location.origin}/Youtube-Clone/play-video.html`;
+function navigateTovideoDetails(videoId) {
+  const repoName = "Youtube-Clone"; // Replace with your GitHub repo name
+  document.cookie = `id=${videoId.statistics[0].id}; path=/play-video.html`;
+  window.location.href = `${window.location.origin}/${repoName}/play-video.html`;
 }
+
 console.log("Windiw",window.location.origin)
 function renderVideosOntoUI(videosList){
   console.log(videosList);
