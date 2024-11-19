@@ -52,7 +52,7 @@ function getViews(views) {
 }
 function navigateTovideoDetails(videoId){
   document.cookie=`id=${videoId.statistics[0].id}; path=/play-video.html`;
-  window.location.href= `${window.location.origin}/${Youtube-Clone}/play-video.html`;
+  window.location.href= `${window.location.origin}/Youtube-Clone/play-video.html`;
 }
 console.log("Windiw",window.location.origin)
 function renderVideosOntoUI(videosList){
