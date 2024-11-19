@@ -51,8 +51,8 @@ function getViews(views) {
   }
 }
 function navigateTovideoDetails(videoId){
-  document.cookie=`id=${videoId.statistics[0].id}; path=/play-video.html`;
-  const baseURL = `${window.location.origin}/Youtube-Clone/play-video.html`;
+  document.cookie=`id=${videoId.statistics[0].id}; path=/Youtube-Clone/play-video.html`;
+  const baseURL = `${window.location.origin}/play-video.html`;
   window.location.href = baseURL;
 }
 console.log("Windiw",window.location.origin)
