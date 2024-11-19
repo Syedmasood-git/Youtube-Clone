@@ -52,7 +52,8 @@ function getViews(views) {
 }
 function navigateTovideoDetails(videoId){
   document.cookie=`id=${videoId.statistics[0].id}; path=/play-video.html`;
-  window.location.href="http://127.0.0.1:5500/play-video.html"
+  const baseURL = `${window.location.origin}/play-video.html`;
+  window.location.href = baseURL;
 }
 function renderVideosOntoUI(videosList){
   console.log(videosList);
