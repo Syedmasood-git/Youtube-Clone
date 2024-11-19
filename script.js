@@ -51,10 +51,11 @@ function getViews(views) {
   }
 }
 function navigateTovideoDetails(videoId){
-  document.cookie=`id=${videoId.statistics[0].id}; path=play-video.html`;
+  document.cookie=`id=${videoId.statistics[0].id}; path=/play-video.html`;
   const baseURL = `${window.location.origin}/play-video.html`;
   window.location.href = baseURL;
 }
+console.log("Windiw",window.location.origin)
 function renderVideosOntoUI(videosList){
   console.log(videosList);
     videosList.forEach((video)=>{
